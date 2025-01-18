@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div>
-      <img :src="getMan()" alt="" />
+    <div class="flex justify-center">
+      <img :src="getMan()" alt="" class="max-w-[40vw]" />
     </div>
     <div class="flex flex-row justify-center mt-7">
       <input
