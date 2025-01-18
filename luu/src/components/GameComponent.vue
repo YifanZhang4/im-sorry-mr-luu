@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="sans">
     <div class="flex justify-center">
       <img :src="getMan()" alt="" class="max-w-[40vw]" />
     </div>
@@ -159,4 +159,8 @@ onMounted(() => {
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+.sans {
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+</style>
