@@ -140,6 +140,9 @@ const funny = () => {
   current.value = "";
   letters.value = [];
   emptySpaces.value = [];
+  index.value = 0;
+  guessed.value = [];
+  health.value = 7;
   getWords();
   getCurrent();
   getLetters();
