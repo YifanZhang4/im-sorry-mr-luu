@@ -55,14 +55,19 @@
         v-if="health === 1"
       />
     </div>
-    <div class="flex flex-row justify-center mt-7">
-      <input
-        v-model="input"
-        type="text"
-        placeholder="Type here"
-        class="input input-bordered w-full max-w-xs mr-6"
-      />
-      <button class="btn" @click="submitGuess">Submit</button>
+    <div>
+      <form
+        @submit.prevent="handleSubmit"
+        class="flex flex-row justify-center mt-7"
+      >
+        <input
+          v-model="input"
+          type="text"
+          placeholder="Type here"
+          class="input input-bordered w-full max-w-xs mr-6"
+        />
+        <button class="btn" @click="submitGuess">Submit</button>
+      </form>
     </div>
     <div>
       <p v-if="alreadyGuessed" class="text-center">
