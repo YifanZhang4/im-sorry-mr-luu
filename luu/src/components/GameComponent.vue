@@ -74,7 +74,7 @@ const punctuationArray = [
 
 const getMan = () => {
   const picture = image.value.toString();
-  return "/src/components/icons/" + picture + ".png";
+  return "/public/icons/" + picture + ".png";
 };
 
 const getWords = () => {
