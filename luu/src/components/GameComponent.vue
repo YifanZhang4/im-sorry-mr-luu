@@ -119,6 +119,7 @@ const getCurrent = () => {
 const getLetters = () => {
   for (let i = 0; i < current.value.length; i++) {
     if (punctuationArray.includes(current.value[i])) {
+      letters.value.push(current.value[i]);
       emptySpaces.value.push(current.value[i]);
     } else {
       letters.value.push(current.value[i]);
