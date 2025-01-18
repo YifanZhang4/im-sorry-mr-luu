@@ -1,7 +1,7 @@
 <template>
   <div class="sans">
     <div class="flex justify-center">
-      <img src="../../public//icons/1.png" alt="" />
+      <img src="../../public/icons/2.png" alt="" />
       <!-- <img :src="getMan()" alt="" class="max-w-[40vw]" /> -->
     </div>
     <div class="flex flex-row justify-center mt-7">
