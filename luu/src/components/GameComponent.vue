@@ -91,7 +91,9 @@
         {{ emptyWord }}
       </p>
     </div>
-    <div><button class="btn" @click="funny">Funny Button</button></div>
+    <div class="flex justify-center">
+      <button class="btn" @click="funny">Funny Button</button>
+    </div>
   </div>
 </template>
 
