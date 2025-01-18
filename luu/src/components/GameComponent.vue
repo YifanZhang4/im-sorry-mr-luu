@@ -1,8 +1,41 @@
 <template>
   <div class="sans">
     <div class="flex justify-center">
-      <img src="../../public/icons/2.png" alt="" />
-      <!-- <img :src="getMan()" alt="" class="max-w-[40vw]" /> -->
+      <img
+        src="../../public/icons/1.png"
+        class="max-w-[40vw]"
+        v-if="health === 7"
+      />
+      <img
+        src="../../public/icons/2.png"
+        class="max-w-[40vw]"
+        v-if="health === 6"
+      />
+      <img
+        src="../../public/icons/3.png"
+        class="max-w-[40vw]"
+        v-if="health === 5"
+      />
+      <img
+        src="../../public/icons/4.png"
+        class="max-w-[40vw]"
+        v-if="health === 4"
+      />
+      <img
+        src="../../public/icons/5.png"
+        class="max-w-[40vw]"
+        v-if="health === 3"
+      />
+      <img
+        src="../../public/icons/6.png"
+        class="max-w-[40vw]"
+        v-if="health === 2"
+      />
+      <img
+        src="../../public/icons/7.png"
+        class="max-w-[40vw]"
+        v-if="health === 1"
+      />
     </div>
     <div class="flex flex-row justify-center mt-7">
       <input
@@ -53,7 +86,6 @@ const letters = ref([]);
 const emptySpaces = ref([]);
 const emptyWords = ref([]);
 const health = ref(7);
-const image = ref(1);
 const punctuationArray = [
   ".",
   ",",
@@ -71,12 +103,8 @@ const punctuationArray = [
   '"',
   "'",
   "`",
+  "’",
 ];
-
-const getMan = () => {
-  const picture = image.value.toString();
-  return "/public/icons/" + picture + ".png";
-};
 
 const getWords = () => {
   for (let i = 0; i < words.length; i++) {
@@ -116,8 +144,6 @@ const submitGuess = () => {
   if (!found) {
     wrong.value = true;
     health.value--;
-    image.value++;
-    getMan();
   } else {
     wrong.value = false;
   }
@@ -132,9 +158,12 @@ const submitGuess = () => {
     emptySpaces.value = [];
     guessed.value = [];
     health.value = 7;
-    image.value = 1;
     getCurrent();
     getLetters();
+  }
+
+  if (health.value === 0) {
+    location.reload();
   }
 };
 
@@ -153,7 +182,6 @@ if (wrong) {
 }
 
 onMounted(() => {
-  getMan();
   getWords();
   getCurrent();
   getLetters();
