@@ -86,12 +86,14 @@
         {{ emptyWord }}
       </p>
     </div>
+    <div><button class="btn" @click="funny">Funny Button</button></div>
   </div>
 </template>
 
 <script setup>
 import { onMounted, ref } from "vue";
 import freewrite from "./freewrite.js";
+import copypasta from "./copypasta.js";
 
 const input = ref();
 const current = ref("");
@@ -99,7 +101,7 @@ const index = ref(0);
 const alreadyGuessed = ref(false);
 const wrong = ref(false);
 const guessed = ref([]);
-const words = Array.from(freewrite.split(" "));
+const words = ref(Array.from(freewrite.split(" ")));
 const letters = ref([]);
 const emptySpaces = ref([]);
 const emptyWords = ref([]);
@@ -124,14 +126,26 @@ const punctuationArray = [
   "’",
 ];
 
+const funny = () => {
+  console.log("hey");
+  words.value = Array.from(copypasta.split(" "));
+  emptyWords.value = [];
+  current.value = "";
+  letters.value = [];
+  emptySpaces.value = [];
+  getWords();
+  getCurrent();
+  getLetters();
+};
+
 const getWords = () => {
-  for (let i = 0; i < words.length; i++) {
+  for (let i = 0; i < words.value.length; i++) {
     emptyWords.value.push("________");
   }
 };
 
 const getCurrent = () => {
-  current.value = words[index.value];
+  current.value = words.value[index.value];
 };
 
 const getLetters = () => {
@@ -171,7 +185,7 @@ const submitGuess = () => {
   input.value = "";
 
   if (emptySpaces.value.every((space) => space !== "_")) {
-    emptyWords.value[index.value] = words[index.value];
+    emptyWords.value[index.value] = words.value[index.value];
     index.value++;
     letters.value = [];
     emptySpaces.value = [];
